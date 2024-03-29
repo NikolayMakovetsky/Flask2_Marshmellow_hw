@@ -1,4 +1,5 @@
 from schema import LearnerSchema
+from pprint import pprint
 
 # Python True == Json true !
 json_data = """
@@ -10,29 +11,31 @@ json_data = """
 """
 schema1 = LearnerSchema() # работает
 result = schema1.loads(json_data)
-print(result, type(result))
+pprint(result)
+print(type(result))
 
 # Python True == Json true !
 json_data = """
 [
     {
         "id": 1,
-        "name": "Roman",
+        "name": "Roma",
         "final_test": true
     },
     {
         "id": 2,
-        "name": "Kirill",
+        "name": "Kiri",
         "final_test": false
     },
     {
         "id": 3,
-        "name": "Evgeniy",
+        "name": "Evge",
         "final_test": true
     }
 ]
 """
 schema2 = LearnerSchema(many=True) # raise JSONDecodeError("Expecting value", s, err.value) from None
 result = schema2.loads(json_data)
-print(result, type(result))
+pprint(result)
+print(type(result))
 
